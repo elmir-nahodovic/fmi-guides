@@ -409,9 +409,9 @@ Assume `M1` and `M2` are connected in an algebraic loop like in https://fmi-stan
 
 Then we have the following super dense time instants:
 
-== Super dense time (1,0)
+**Super dense time (1,0)**
 
-=== Solve "algebraic loop"
+Solve "algebraic loop":
 
 [cols="1,1,2,1,5",options="header"]
 |===
@@ -448,7 +448,7 @@ Then we have the following super dense time instants:
 |`reply` is not yet `true`
 |===
 
-=== Call fmi3UpdateDiscreteStates
+Call fmi3UpdateDiscreteStates:
 
 [cols="1,1,5,3",options="header"]
 |===
@@ -465,9 +465,9 @@ Then we have the following super dense time instants:
 |`pre(message) := message`, `pre(pending) := pending`
 |===
 
-== Super dense time (1,1)
+**Super dense time (1,1)**
 
-=== Solve algebraic loop
+Solve algebraic loop:
 
 [cols="1,1,2,1,5",options="header"]
 |===
@@ -504,7 +504,7 @@ Then we have the following super dense time instants:
 |`reply` is now `true`
 |===
 
-=== Call fmi3UpdateDiscreteStates
+Call fmi3UpdateDiscreteStates:
 
 [cols="1,1,5,3",options="header"]
 |===
@@ -521,9 +521,9 @@ Then we have the following super dense time instants:
 |`pre(reply) := reply`
 |===
 
-== Super dense time (1,2)
+**Super dense time (1,2)**
 
-=== Solve algebraic loop
+Solve algebraic loop:
 
 [cols="1,1,2,1,5",options="header"]
 |===
@@ -560,7 +560,7 @@ Then we have the following super dense time instants:
 |same as last super dense time
 |===
 
-=== Call fmi3UpdateDiscreteStates
+Call fmi3UpdateDiscreteStates:
 
 [cols="2,2,3,1",options="header"]
 |===
