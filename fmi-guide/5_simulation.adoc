@@ -308,7 +308,7 @@ An FMU 3.0 for Co-Simulation or Model Exchange might enter Event Mode for many d
 
 ==== Example
 
-This is an example using two Modelica models, each exported as FMUs and coupled together in some importing environment. The notation `pre(x_d)` means the $^\bullet\mathbf{x}_d$, which means the value of `x_d` at the previous super dense time instant. 
+This is an example using two Modelica models, each exported as FMUs and coupled together in some importing environment. The notation `pre(x_d)` means the latexmath:[^\bullet\mathbf{x}_d], which means the value of `x_d` at the previous super dense time instant. 
 
 Assume capability flag `providesEvaluateDiscreteStates` is false and disregard clocks for now. The call to `fmi3UpdateDiscreteStates` does particularly the following
     
@@ -350,7 +350,7 @@ end M2;
 
 ```
 
-Assume `M1` and `M2` are connected in an algebraic loop like in https://fmi-standard.org/docs/3.0.2/#algebraic-loops "real" algebraic loop, and leave the output `done` unconneted. Since the output `message` in `M1` does not depend on the input (which e.g. could be seen from the `ModelStructure` element), the algebraic loop is quite simple to solve. Just alternate get/set between the two FMUs, like so:
+Assume `M1` and `M2` are connected in an algebraic loop like in https://fmi-standard.org/docs/3.0.2/#algebraic-loops "real" algebraic loop, and leave the output `done` unconnected. Since the output `message` in `M1` does not depend on the input (which e.g. could be seen from the `ModelStructure` element), the algebraic loop is quite simple to solve. Just alternate get/set between the two FMUs, like so:
 
 ```
    // If isCoSimulation, assume the FMUs have capability flag eventModeUsed = fmi3True
@@ -545,7 +545,7 @@ Solve algebraic loop:
 |Get
 |reply
 |true
-|`same as last super dense time
+|same as last super dense time
 
 |M1
 |Set
