@@ -294,7 +294,7 @@ end loop
 
 In FMI 2.0 this was formalized with the notion of super dense time. The main motivation to expose these event semantics is especially for the case of FMUs coupled with algebraic loops.
 
-Since the initial release, the FMI API provides the importer a function to evalaute all discrete time equations, and to commit changes to the discrete variables. The general idea in FMI 3.0 (and the other major releases) is that the FMU must perform a `do while` loop, and keep iterating until the FMU reports `discreteStatesNeedUpdate = fmi3False`. Comparing it to the pseudo-code above from the Modelica specification, this corresponds to the line `if z == pre(z) and m == pre(m) then break`. 
+Since the initial release, the FMI API provides the importer a function to evalaute all discrete time equations, and to commit changes to the discrete variables. The general idea in FMI 3.0 (and the other major releases) is that the importer of the FMU must perform a `do while` loop, and keep iterating until the FMU reports `discreteStatesNeedUpdate = fmi3False`. Comparing it to the pseudo-code above from the Modelica specification, this corresponds to the line `if z == pre(z) and m == pre(m) then break`. 
 
 In FMI 3.0, an example with pseudo code is available showing how the API is used in principle. See https://fmi-standard.org/docs/3.0/#_event_mode. However the exact semantics when and how to call this function vary between all major releases of FMI:
 
