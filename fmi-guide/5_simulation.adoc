@@ -377,7 +377,7 @@ Assume `M1` and `M2` are connected in an algebraic loop like in https://fmi-stan
     time = 1;
     M1->fmi3SetFloat64(M1->instance, &vr_M1_time, 1, &time, 1);
 
-    // super-dense time, form https://fmi-standard.org/docs/3.0.2/#mathematical-definitions
+    // super-dense time, from https://fmi-standard.org/docs/3.0.2/#mathematical-definitions
     // remember notation: (t_R, t_I), t_R = 1 s, t_I \in {0,1,2,3,...}
    
     // Now enter super-dense time
