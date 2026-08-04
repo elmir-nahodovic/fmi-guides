@@ -298,7 +298,7 @@ Since the initial release, the FMI API provides the importer a function to evala
 
 In FMI 3.0, an example with pseudo code is available showing how the API is used in principle. See https://fmi-standard.org/docs/3.0/#_event_mode. However the exact semantics when and how to call this function vary between all major releases of FMI:
 
-* In FMI 1.0 the function is called `fmiEventUpdate` and the function must be called after a time, state, or step event occured. If the argument `intermediateResults = fmiTrue`, then the function will return for every event iteration that is performed internally (i.e., it will commit the the previous value of the discrete variable to its new value, by setting latexmath:[^\bullet\mathbf{x}_d := \mathbf{x}_d]). If `intermediateResults = fmiFalse`, it will peform its iteration to completeness, basically wrapping the call with `intermediateResults = fmiTrue` in a internal `do while` loop.
+* In FMI 1.0 the function is called `fmiEventUpdate` and the function must be called after a time, state, or step event occured. If the argument `intermediateResults = fmiTrue`, then the function will return for every event iteration that is performed internally (i.e., it will commit the the previous value of the discrete variable to its new value, by setting latexmath:[^\bullet\mathbf{x}_d := \mathbf{x}_d]). If `intermediateResults = fmiFalse`, it will perform its iteration to completeness, basically wrapping the call with `intermediateResults = fmiTrue` in a internal `do while` loop.
 
 * In FMI 2.0 the option for `intermediateResults` is removed and function is named `fmi2NewDiscreteStates`, it increments the super dense time and reports `fmi2EventInfo.newDiscreteStatesNeeded`. 
 
