@@ -526,7 +526,7 @@ Solve algebraic loop:
 |Get
 |reply
 |true
-|`pre(pending)` is now `true` thanks to the commit `pre(pending) := pending` from `fmi3UpdateDiscretestates` in the previous super dense time.
+|`pre(pending)` is now `true` thanks to the commit `pre(pending) := pending` from `fmi3UpdateDiscreteStates` in the previous super dense time.
 
 |M1
 |Set
