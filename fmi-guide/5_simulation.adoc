@@ -439,7 +439,7 @@ Solve "algebraic loop":
 |Set
 |reply
 |false
-|from `fmi3Get` from M1
+|from `fmi3Get` from M2
 
 |M1
 |Get
