@@ -353,9 +353,8 @@ end M2;
 Assume `M1` and `M2` are connected in an algebraic loop like in https://fmi-standard.org/docs/3.0.2/#algebraic-loops for the "real" algebraic loop case on the right side of the diagram, and leave the output `done` unconnected. Since the output `message` in `M1` does not depend on the input (which e.g. could be seen from the `ModelStructure` element), the algebraic loop is quite simple to solve. Just alternate get/set between the two FMUs, like so:
 
 ```
-   // If isCoSimulation, assume the FMUs have capability flag eventModeUsed = fmi3True
+   // If isCoSimulation, assume the FMUs have the capability flag hasEventMode set to true
     FMU *M1, *M2;
-    fmi3Float64 time = 0;
     fmi3Boolean MESSAGE = fmi3False, REPLY = fmi3False, DONE = fmi3False;
 
     // DO: instantiate, initialize
@@ -369,13 +368,10 @@ Assume `M1` and `M2` are connected in an algebraic loop like in https://fmi-stan
     // DO: updateDiscretStates on FMUs
     // M1 will signal nextEventTime = 1 s
 
-    fmi3ValueReference vr_M1_time, vr_M1_reply, vr_M1_message, vr_M1_done;
-    fmi3ValueReference vr_M2_time, vr_M2_message, vr_M2_reply;
+    fmi3ValueReference vr_M1_reply, vr_M1_message, vr_M1_done;
+    fmi3ValueReference vr_M2_message, vr_M2_reply;
 
     // DO: integrate/doStep until time == nextEventTime (1 s)
-   
-    time = 1;
-    M1->fmi3SetFloat64(M1->instance, &vr_M1_time, 1, &time, 1);
 
     // super-dense time, from https://fmi-standard.org/docs/3.0.2/#mathematical-definitions
     // remember notation: (t_R, t_I), t_R = 1 s, t_I \in {0,1,2,3,...}
