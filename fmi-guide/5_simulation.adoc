@@ -281,7 +281,7 @@ Originally Event Mode was restricted to FMI for Model Exchange, and the semantic
 
 ```
  known  variables: x, t, p
-unkown variables: dx/dt, y, z, m, pre(z), pre(m), c
+unknown variables: dx/dt, y, z, m, pre(z), pre(m), c
 // pre(z) = value of z before event occured
 // pre(m) = value of m before event occured
 loop
