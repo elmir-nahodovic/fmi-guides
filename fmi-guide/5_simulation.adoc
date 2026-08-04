@@ -350,7 +350,7 @@ end M2;
 
 ```
 
-Assume `M1` and `M2` are connected in an algebraic loop like in https://fmi-standard.org/docs/3.0.2/#algebraic-loops "real" algebraic loop, and leave the output `done` unconnected. Since the output `message` in `M1` does not depend on the input (which e.g. could be seen from the `ModelStructure` element), the algebraic loop is quite simple to solve. Just alternate get/set between the two FMUs, like so:
+Assume `M1` and `M2` are connected in an algebraic loop like in https://fmi-standard.org/docs/3.0.2/#algebraic-loops for the "real" algebraic loop case on the right side of the diagram, and leave the output `done` unconnected. Since the output `message` in `M1` does not depend on the input (which e.g. could be seen from the `ModelStructure` element), the algebraic loop is quite simple to solve. Just alternate get/set between the two FMUs, like so:
 
 ```
    // If isCoSimulation, assume the FMUs have capability flag eventModeUsed = fmi3True
@@ -448,6 +448,43 @@ Solve "algebraic loop":
 |`reply` is not yet `true`
 |===
 
+This is the current status of the variables:
+
+[cols="1,2,1,1",options="header"]
+|===
+|FMU | Variable |Pre |New
+
+|M1
+|`reply`
+|false
+|false
+
+|M1
+|`message`
+|false
+|true
+
+|M1
+|`done`
+|false
+|false
+
+|M2
+|`message`
+|false
+|true
+
+|M2
+|`reply`
+|false
+|false
+
+|M2
+|`pending`
+|false
+|true
+|===
+
 Call fmi3UpdateDiscreteStates:
 
 [cols="1,1,5,3",options="header"]
@@ -504,6 +541,43 @@ Solve algebraic loop:
 |`reply` is now `true`
 |===
 
+This is the current status of the variables:
+
+[cols="1,2,1,1",options="header"]
+|===
+|FMU | Variable |Pre |New
+
+|M1
+|`reply`
+|false
+|true
+
+|M1
+|`message`
+|true
+|true
+
+|M1
+|`done`
+|false
+|true
+
+|M2
+|`message`
+|true
+|true
+
+|M2
+|`reply`
+|false
+|true
+
+|M2
+|`pending`
+|true
+|true
+|===
+
 Call fmi3UpdateDiscreteStates:
 
 [cols="1,1,5,3",options="header"]
@@ -558,6 +632,43 @@ Solve algebraic loop:
 |done
 |true
 |same as last super dense time
+|===
+
+This is the current status of the variables:
+
+[cols="1,2,1,1",options="header"]
+|===
+|FMU | Variable |Pre |New
+
+|M1
+|`reply`
+|true
+|true
+
+|M1
+|`message`
+|true
+|true
+
+|M1
+|`done`
+|true
+|true
+
+|M2
+|`message`
+|true
+|true
+
+|M2
+|`reply`
+|true
+|true
+
+|M2
+|`pending`
+|true
+|true
 |===
 
 Call fmi3UpdateDiscreteStates:
